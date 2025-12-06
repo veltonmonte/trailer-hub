@@ -1,0 +1,568 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #080808;
+  margin: 0;
+  overflow-x: hidden;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*=============MOVIES LISTS=============*/
+
+.categorias_list_movies {
+  margin: 30px;
+  margin-left: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 50px;
+  gap: 5px;
+}
+
+/*======================================*/
+
+/*======HEADER======*/
+
+.header {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 40px);
+  max-width: 1500px;
+  height: 65px;
+  background-color: rgb(9, 2, 27);
+  z-index: 1000;
+  padding: 0 20px;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.header:hover {
+  transform: translateX(-50%) scale(1.05);
+}
+
+.User {
+  margin-left: auto;
+  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.User img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  filter: brightness(0) invert(1);
+}
+
+.User img:hover {
+  filter: brightness(0) saturate(100%) invert(19%) sepia(91%) saturate(7480%)
+    hue-rotate(268deg) brightness(94%) contrast(101%);
+  cursor: pointer;
+}
+
+.User:hover {
+  transform: scale(1.2);
+  background-color: whitesmoke;
+}
+
+.header_logo img {
+  margin: 12px;
+  width: 200px;
+  height: 200px;
+  transition: 0.5s;
+}
+
+.header nav {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.Header_link {
+  text-decoration: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: "Inter", "Roboto", sans-serif;
+  width: 100%;
+  transition: 0.3s;
+}
+
+.header li {
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+}
+
+.header li:hover .Header_link {
+  color: #8400ff;
+  transform: scale(1.2);
+  background-color: whitesmoke;
+  border-radius: 50px;
+  width: 80px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  transition: 0.5s;
+  height: 100px;
+  width: 200px;
+  margin-top: 15px;
+}
+
+.logo:hover {
+  transform: scale(1.2);
+}
+
+/*======HEADER VIDEO======*/
+
+.header-image {
+  position: relative;
+  width: 100%;
+  height: 55vh;
+  overflow: hidden;
+  margin-bottom: 50px;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #080808);
+  z-index: 1;
+}
+
+/*======MAIN======*/
+
+main {
+  margin: 0px;
+}
+
+/*======POPULAR MOVIES - CAROUSEL CORRIGIDO======*/
+
+.movie-category {
+  margin-bottom: 50px;
+}
+
+.popular-movies {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.list-container {
+  position: relative;
+  padding: 0 20px;
+}
+
+.list-container h2 {
+  display: block;
+  font-size: 40px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  color: white;
+  font-family: "Roboto Slab", serif;
+}
+
+.movie-list {
+  display: flex;
+  height: 290px;
+  margin-top: 20px;
+  margin-left: 0;
+  align-items: center;
+  overflow: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+}
+
+.movie-list::-webkit-scrollbar {
+  display: none;
+}
+
+.movie-item {
+  overflow: hidden;
+  height: 198px;
+  margin-top: auto;
+  margin-bottom: auto;
+  flex: 0 0 360px;
+  margin-right: 30px;
+  margin-left: 25px;
+  border-radius: 10px;
+  box-shadow: 10px 20px 10px rgba(0, 0, 0, 0.986);
+  transition: all 0.3s ease-in-out;
+}
+
+.movie-item img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: hidden;
+}
+
+.movie-item:hover {
+  outline: 2px solid white;
+  transform: scale(1.1);
+  cursor: pointer;
+  filter: drop-shadow(0 0 10px rgb(87, 69, 102));
+  box-shadow: none;
+  z-index: 5;
+}
+
+.arrowLeft,
+.arrowRight {
+  position: absolute;
+  top: 60%;
+  transform: translateY(-50%);
+  height: 200px;
+  width: 60px;
+  border: none;
+  z-index: 10;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mostra os botões quando passar o mouse no container */
+.list-container:hover .arrowLeft,
+.list-container:hover .arrowRight {
+  opacity: 0.4;
+}
+
+.arrowLeft:hover,
+.arrowRight:hover {
+  opacity: 10 !important;
+}
+
+.arrowLeft {
+  left: 0;
+  background: linear-gradient(to right, rgba(5, 5, 5, 0.9), transparent);
+}
+
+.arrowRight {
+  right: 0;
+  background: linear-gradient(to left, rgba(5, 5, 5, 0.9), transparent);
+}
+
+.arrowLeft img,
+.arrowRight img {
+  width: 30px;
+  height: 30px;
+}
+
+/*============CATEGORIAS==============*/
+
+.categorias {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.categorias h2 {
+  display: block;
+  font-size: 40px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  color: white;
+  font-family: "Roboto Slab", serif;
+}
+
+.categorias-list {
+  display: flex;
+  gap: 30px;
+  height: 600px;
+  margin-top: 20px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+  padding: 60px 20px 20px;
+}
+
+.categorias-list::-webkit-scrollbar {
+  display: none;
+}
+
+.categorias-item {
+  position: relative;
+  height: 500px;
+  flex: 0 0 400px;
+  border-radius: 10px;
+  box-shadow: 10px 20px 10px rgba(0, 0, 0, 0.986);
+  transition: all 0.3s ease-in-out;
+}
+
+.categorias-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.categorias-item:hover {
+  outline: 3px solid white;
+  transform: scale(1.05);
+  cursor: pointer;
+  filter: drop-shadow(0 0 10px rgb(132, 0, 255));
+  box-shadow: none;
+  z-index: 5;
+}
+
+.titulo-categoria {
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+  color: rgb(247, 247, 247);
+  font-size: 32px;
+  font-family: monospace;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  backdrop-filter: blur(8px);
+  padding: 25px 15px;
+  text-align: center;
+  transition: backdrop-filter 0.2s;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.titulo-categoria:hover {
+  backdrop-filter: blur(16px);
+}
+
+/*======MEDIA QUERIES TABLET======*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  /*----- Header -----*/
+  .header h1 {
+    font-size: 30px;
+  }
+
+  .header ul {
+    gap: 10px;
+  }
+
+  /*----- Popular Movies -----*/
+
+  .list-container h2,
+  .categorias h2 {
+    font-size: 30px;
+  }
+
+  .movie-item {
+    flex: 0 0 340px;
+    height: 170px;
+  }
+
+  .arrowRight,
+  .arrowLeft {
+    height: 170px;
+    width: 50px;
+  }
+
+  .arrowLeft img,
+  .arrowRight img {
+    width: 25px;
+    height: 25px;
+  }
+
+  /*===============categorias=====================*/
+
+  .categorias-item {
+    height: 400px;
+    flex: 0 0 350px;
+  }
+
+  .titulo-categoria {
+    font-size: 28px;
+    height: 90px;
+  }
+}
+
+/*======MEDIA QUERIES MOBILE======*/
+@media (min-width: 320px) and (max-width: 768px) {
+  /*----- Header -----*/
+  .header h1 {
+    font-size: 25px;
+  }
+
+  .header ul {
+    gap: 5px;
+  }
+
+  .header li {
+    font-size: 12px;
+    margin: 0 8px;
+  }
+
+  /*----- Header Video -----*/
+
+  .video {
+    height: 300px;
+  }
+
+  /*----- Popular Movies -----*/
+
+  .list-container h2,
+  .categorias h2 {
+    font-size: 25px;
+    margin-left: 15px;
+  }
+
+  .movie-list {
+    gap: 15px;
+    padding: 15px 0;
+  }
+
+  .movie-item {
+    flex: 0 0 250px;
+    height: 130px;
+  }
+
+  .arrowRight,
+  .arrowLeft {
+    height: 130px;
+    width: 40px;
+  }
+
+  .arrowRight img,
+  .arrowLeft img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .categorias-list {
+    gap: 15px;
+    padding: 40px 15px 15px;
+  }
+
+  .categorias-item {
+    height: 300px;
+    flex: 0 0 250px;
+  }
+
+  .titulo-categoria {
+    font-size: 20px;
+    height: 80px;
+    padding: 15px 10px;
+  }
+}
+
+
+
+/*======GENEROS======*/
+
+.Generos_container{
+  margin-top: 100px;
+  margin-bottom: 100px;
+  text-align: center;
+  -webkit-text-fill-color: whitesmoke;
+}
+
+.Generos{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 60%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 10px 20px 10px rgba(0, 0, 0, 0.986);
+  transition: 0.3s;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-text-fill-color: rgb(250, 235, 215);
+  gap: 20px;
+  background-color: rgb(17, 17, 17);
+}
+
+.item_genero{
+  width: 100px;
+  height: 80px;
+  margin: 30px;
+  background-color: rgb(245, 245, 245);
+  border-radius: 15px;
+  box-shadow: 10px 20px 10px rgba(0, 0, 0, 0.986);
+  transition: 0.3s;
+}
+
+.item_genero h3{
+  font-size: 20px;
+  margin-top: 10px;
+  font-family: "Roboto Slab", serif;
+  -webkit-text-fill-color: rgb(255, 255, 255);
+}
+
+.item_genero:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+  box-shadow: none;
+  z-index: 5;
+}
+
+.item_genero img{
+  width: 60px;
+  height: 60px;
+  margin-top: 10px;
+  filter: brightness(0) saturate(100%) invert(19%) sepia(91%) saturate(7480%)
+    hue-rotate(268deg) brightness(94%) contrast(101%)
+}
+
+
